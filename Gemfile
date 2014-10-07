@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem "twitter-bootstrap-rails"
+
 gem 'devise'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
