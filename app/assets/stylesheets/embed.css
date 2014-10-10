@@ -1,4 +1,32 @@
+body{
+  margin: 0;
+}
+
+#embed-sticker-menu{
+   position: fixed;
+   border-radius: 4px;
+   /*border: 1px solid rgba(188,188,188,0.9);*/
+   width: 42px;
+   bottom: 0;
+   background-color: #FFF;
+   cursor: pointer;
+ }
+
 .web-menu{
+  height: 20px;
+  padding: 10px 5px 10px 5px;
+  border-top: solid 1px #EDEDED;
+  opacity: 0.7;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-image: url('bookmark-3x.png')
+}
+
+.web-menu:hover{
+  background: orange;
+  filter:alpha(opacity=50);
+  opacity: 0.5;
   height: 20px;
   padding: 10px 5px 10px 5px;
   border-top: solid 1px #EDEDED;
