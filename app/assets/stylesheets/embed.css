@@ -12,6 +12,10 @@ body{
    cursor: pointer;
  }
 
+ #add-sticker{
+   background-image: url('bookmark-3x.png')
+ }
+
 .web-menu{
   height: 20px;
   padding: 10px 5px 10px 5px;
@@ -20,7 +24,6 @@ body{
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 30px;
-  background-image: url('bookmark-3x.png')
 }
 
 .web-menu:hover{
