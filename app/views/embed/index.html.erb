@@ -1,7 +1,12 @@
 <%= stylesheet_link_tag 'embed'%>
 <%= javascript_include_tag 'porthole.min'%>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 <div id="embed-sticker-menu">
-  <div id='add-sticker' class="web-menu">
+  <% if user_signed_in? %>
+    <div id='add-sticker' class="web-menu">
+  <% else %>
+    <div id='login-sticker' class="web-menu">
+  <% end %>
   </div>
 </div>

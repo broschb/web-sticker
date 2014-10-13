@@ -16,7 +16,17 @@ $ ->
         initializeProxy(baseUrl)
       when 'create'
         text = event.data.text
-        console.log('proxy event with text' + text)
+        createSticker(text)
+
+  createSticker = (text) ->
+    $.post("/embed",
+      baseUrl: baseUrl
+      text: text
+    ).done (data) ->
+      eventProxy.post
+        action: "success"
+      return
+
 
   initializeProxy = (url) ->
     eventProxy = new Porthole.WindowProxy(url)
@@ -27,3 +37,6 @@ $ ->
   $('#add-sticker').click ->
     eventProxy.post
       action: "add-sticker"
+
+  $('#login-sticker').click ->
+    window.open('/');
