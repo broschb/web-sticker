@@ -2,18 +2,28 @@ $ ->
   registerProxy = undefined
   eventProxy = undefined
   registerProxy = new Porthole.WindowProxy()
-  eventProxy = new Porthole.WindowProxy()
+  baseUrl = undefined
 
   # Register an event handler to receive messages;
-  #TODO need to have first event send over the parent so events can be sent back
   registerProxy.addEventListener (event) ->
     proxyEvent(event)
 
-  eventProxy.addEventListener (event) ->
-    proxyEvent(event)
-
   proxyEvent = (event) ->
-    console.log('have event')
+    action = event.data.action
+    switch action
+      when "initialize"
+        baseUrl = event.data.url
+        initializeProxy(baseUrl)
+      when 'create'
+        text = event.data.text
+        console.log('proxy event with text' + text)
+
+  initializeProxy = (url) ->
+    eventProxy = new Porthole.WindowProxy(url)
+    eventProxy.addEventListener (event) ->
+      proxyEvent(event)
+
 
   $('#add-sticker').click ->
-    console.log 'addsticker'
+    eventProxy.post
+      action: "add-sticker"
