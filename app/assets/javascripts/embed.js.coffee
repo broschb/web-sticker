@@ -9,6 +9,7 @@ $ ->
     proxyEvent(event)
 
   proxyEvent = (event) ->
+    console.log(event)
     action = event.data.action
     switch action
       when "initialize"
@@ -32,6 +33,7 @@ $ ->
     eventProxy = new Porthole.WindowProxy(url)
     eventProxy.addEventListener (event) ->
       proxyEvent(event)
+    registerProxy.removeEventListener(proxyEvent)
 
 
   $('#add-sticker').click ->
