@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem "twitter-bootstrap-rails"
 
+gem "font-awesome-rails"
+
 gem 'devise'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
