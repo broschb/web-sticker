@@ -10,8 +10,13 @@
   <%= bootstrap_flash %>
   <%= render 'layouts/menu' %>
 
-<div class="container">
-  <%= yield %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'layouts/sidemenu' %>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <%= yield %>
+    </div>
+  </div>
 </div>
 
 </body>
