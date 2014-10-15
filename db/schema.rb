@@ -13,25 +13,35 @@
 
 ActiveRecord::Schema.define(version: 20141006044857) do
 
-  create_table "sites", force: true do |t|
-    t.string   "name"
-    t.string   "base_url"
+  create_table "pages", force: true do |t|
+    t.integer  "site_id"
+    t.string   "page_url"
+    t.string   "page_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "stickers", force: true do |t|
+  add_index "pages", ["site_id", "page_url"], name: "index_pages_on_site_id_and_page_url"
+  add_index "pages", ["site_id"], name: "index_pages_on_site_id"
+
+  create_table "scribblets", force: true do |t|
     t.integer  "user_id"
-    t.integer  "site_id"
-    t.string   "page_url"
+    t.integer  "page_id"
     t.string   "selected_text"
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "stickers", ["site_id"], name: "index_stickers_on_site_id"
-  add_index "stickers", ["user_id"], name: "index_stickers_on_user_id"
+  add_index "scribblets", ["page_id"], name: "index_scribblets_on_page_id"
+  add_index "scribblets", ["user_id"], name: "index_scribblets_on_user_id"
+
+  create_table "sites", force: true do |t|
+    t.string   "name"
+    t.string   "base_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"

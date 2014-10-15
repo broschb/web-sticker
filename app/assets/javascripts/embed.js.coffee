@@ -3,6 +3,7 @@ $ ->
   eventProxy = undefined
   registerProxy = new Porthole.WindowProxy()
   baseUrl = undefined
+  pageTitle = undefined
 
   # Register an event handler to receive messages;
   registerProxy.addEventListener (event) ->
@@ -14,15 +15,19 @@ $ ->
     switch action
       when "initialize"
         baseUrl = event.data.url
+        pageTitle = event.data.pageTitle
         initializeProxy(baseUrl)
       when 'create'
         text = event.data.text
-        createSticker(text)
+        pageUrl = event.data.pageUrl
+        createSticker(text, pageUrl)
 
-  createSticker = (text) ->
+  createSticker = (text, pageUrl) ->
     $.post("/embed",
       baseUrl: baseUrl
       text: text
+      pageTitle: pageTitle
+      pageUrl: pageUrl
     ).done (data) ->
       eventProxy.post
         action: "success"

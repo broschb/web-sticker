@@ -13,7 +13,7 @@ body{
  }
 
  #add-sticker{
-   background-image: url('bookmark-3x.png')
+   /*background-image: url('bookmark-3x.png')*/
  }
 
  #login-sticker{
@@ -21,25 +21,24 @@ body{
  }
 
 .web-menu{
-  height: 20px;
+  /*height: 30px;*/
   padding: 10px 5px 10px 5px;
   border-top: solid 1px #EDEDED;
   opacity: 0.7;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 30px;
+  /*background-size: 30px;*/
 }
 
 .web-menu:hover{
   background: orange;
   filter:alpha(opacity=50);
   opacity: 0.5;
-  height: 20px;
+  /*height: 30px;*/
   padding: 10px 5px 10px 5px;
   border-top: solid 1px #EDEDED;
   opacity: 0.7;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 30px;
-  background-image: url('bookmark-3x.png')
+  /*background-size: 30px;*/
 }
