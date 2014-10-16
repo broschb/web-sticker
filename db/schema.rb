@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006044857) do
+ActiveRecord::Schema.define(version: 20141016042619) do
 
   create_table "pages", force: true do |t|
     t.integer  "site_id"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20141006044857) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "serializeRange"
+    t.string   "serialize_range"
   end
 
   add_index "scribblets", ["page_id"], name: "index_scribblets_on_page_id"

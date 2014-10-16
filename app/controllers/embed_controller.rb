@@ -10,6 +10,7 @@ class EmbedController < ApplicationController
     text = params['text']
     page_url = params['pageUrl']
     page_title = params['pageTitle']
+    serialize_range = params['serializeRange']
     user = current_user
 
     site = Site.find_or_create_by(base_url: base_url)
@@ -21,6 +22,7 @@ class EmbedController < ApplicationController
     scribblet.user = user
     scribblet.page = page
     scribblet.selected_text = text
+    scribblet.serialize_range = serialize_range
     scribblet.save!
 
     render status: 200, json: scribblet.to_json

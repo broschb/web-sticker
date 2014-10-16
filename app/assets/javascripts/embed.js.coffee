@@ -20,13 +20,15 @@ $ ->
       when 'create'
         text = event.data.text
         pageUrl = event.data.pageUrl
-        createSticker(text, pageUrl)
+        serializeRange = event.data.serializeRange
+        createSticker(text, pageUrl, serializeRange)
 
-  createSticker = (text, pageUrl) ->
+  createSticker = (text, pageUrl, serializeRange) ->
     $.post("/embed",
       baseUrl: baseUrl
       text: text
       pageTitle: pageTitle
+      serializeRange: serializeRange
       pageUrl: pageUrl
     ).done (data) ->
       eventProxy.post
