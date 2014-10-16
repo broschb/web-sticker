@@ -28,4 +28,16 @@ class EmbedController < ApplicationController
     render status: 200, json: scribblet.to_json
   end
 
+  def scripplets
+    user = current_user
+    base_url = params['baseUrl']
+    page_url = params['pageUrl']
+    #todo should be scope in model this is bad :(
+    scribblets = current_user.scribblets.joins("INNER JOIN pages p on scribblets.page_id = p.id
+                                   AND p.page_url = '#{page_url}'").
+                                   joins("INNER JOIN sites s on s.id = p.site_id
+                                   AND s.base_url = '#{base_url}'")
+    render status: 200, json: scribblets.to_json
+  end
+
 end
