@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: "scribblet#index"
   get 'embed/scripplets', to: 'embed#scripplets'
   resources :embed
+  resources :tag
+  resources :site
 end
