@@ -2,7 +2,7 @@
 <div class="row">
   <div class="bs-callout bs-callout-info">
     <div class="pull-right"><%="#{time_ago_in_words(scribblet.updated_at)} ago "%></div>
-    <h4><%= scribblet.page.page_name %> <small><%= scribblet.page.site.base_url %></small></h4>
+    <h4><%= link_to scribblet.page.page_name, "#{scribblet.page.site.base_url}#{scribblet.page.page_url}", :target => "_blank" %> <small><%= scribblet.page.site.base_url %></small></h4>
     <p><%= scribblet.selected_text %></p>
   </div>
 </div>
