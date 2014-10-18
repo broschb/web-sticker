@@ -29,4 +29,15 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
       end
   end
+
+  def self.register(email)
+    user = User.where(:email => email).first
+    unless user
+      user = User.create(
+      email: email,
+      password: Devise.friendly_token[0,20]
+      )
+    end
+    user
+  end
 end
