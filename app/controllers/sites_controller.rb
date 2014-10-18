@@ -1,4 +1,4 @@
-class SiteController < ApplicationController
+class SitesController < ApplicationController
 
   def index
     @page_id = 'sites'

@@ -1,4 +1,4 @@
-class ScribbletController < ApplicationController
+class ScribbletsController < ApplicationController
 
   def index
     @page_id = 'scribblets'
