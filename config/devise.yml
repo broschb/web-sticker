@@ -1,0 +1,8 @@
+development:
+  secret_key: todo
+
+test:
+  secret_key: todo
+
+production:
+  secret_key: todo
