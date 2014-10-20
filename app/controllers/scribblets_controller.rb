@@ -9,4 +9,9 @@ class ScribbletsController < ApplicationController
     end
   end
 
+  def destroy
+    scribblet = Scribblet.delete(params[:id])
+    render status: 200, json: scribblet.to_json
+  end
+
 end
