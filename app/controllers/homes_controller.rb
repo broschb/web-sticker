@@ -2,7 +2,11 @@ class HomesController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:index, :register]
 
   def index
-    render :layout => false
+    if current_user
+      redirect_to scribblets_path
+    else
+      render :layout => false
+    end
   end
 
   def register
